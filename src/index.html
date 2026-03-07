@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Crafted with ☕ and too much late-night coding by Badri -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Commit</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                fontFamily: {
+                    sans: ['JetBrains Mono', 'monospace'],
+                    mono: ['JetBrains Mono', 'monospace'],
+                },
+                extend: {
+                    colors: {
+                        zinc: {
+                            850: '#18181b', // Slightly lighter than black
+                            900: '#09090b', // Very dark grey
+                            950: '#000000', // Pure OLED Black
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Commit_">
+    <link rel="apple-touch-icon" href="./icons/icon.svg">
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./service-worker.js')
+                    .then(reg => console.log('Service Worker Registered'))
+                    .catch(err => console.log('Service Worker Failure', err));
+            });
+        }
+    </script>
+</head>
+
+<body class="bg-black text-zinc-300 min-h-screen pb-24 selection:bg-green-500 selection:text-black font-mono">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 bg-black/80 backdrop-blur-md z-50 border-b border-zinc-900">
+        <div class="max-w-md mx-auto px-6 h-16 flex items-center justify-between">
+            <h1 class="text-xl font-bold tracking-tight text-white">Commit<span class="text-green-500">_</span></h1>
+            <div id="header-actions">
+                <!-- Dynamic actions based on view (e.g., Add Habit button) -->
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main id="app" class="max-w-md mx-auto px-6 pt-24 space-y-8">
+        <!-- Views will be injected here -->
+        <div id="view-habits" class="view-section hidden"></div>
+        <div id="view-tasks" class="view-section hidden"></div>
+        <div id="view-notes" class="view-section hidden"></div>
+        <div id="view-career" class="view-section hidden"></div>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="fixed bottom-0 left-0 right-0 bg-black/90 backdrop-blur-lg border-t border-zinc-900 pb-safe z-50">
+        <div class="max-w-md mx-auto px-6 h-20 grid grid-cols-4 gap-1">
+            <button
+                class="nav-btn flex flex-col items-center justify-center space-y-1 text-zinc-500 hover:text-zinc-200 transition-colors data-[active=true]:text-green-500"
+                data-target="habits">
+                <i data-lucide="layout-grid" class="w-6 h-6"></i>
+                <span class="text-xs font-medium">Habits</span>
+            </button>
+            <button
+                class="nav-btn flex flex-col items-center justify-center space-y-1 text-zinc-500 hover:text-zinc-200 transition-colors data-[active=true]:text-green-500"
+                data-target="tasks">
+                <i data-lucide="check-square" class="w-6 h-6"></i>
+                <span class="text-xs font-medium">Tasks</span>
+            </button>
+            <button
+                class="nav-btn flex flex-col items-center justify-center space-y-1 text-zinc-500 hover:text-zinc-200 transition-colors data-[active=true]:text-green-500"
+                data-target="notes">
+                <i data-lucide="file-text" class="w-6 h-6"></i>
+                <span class="text-xs font-medium">Notes</span>
+            </button>
+            <button
+                class="nav-btn flex flex-col items-center justify-center space-y-1 text-zinc-500 hover:text-zinc-200 transition-colors data-[active=true]:text-green-500"
+                data-target="career">
+                <i data-lucide="trending-up" class="w-6 h-6"></i>
+                <span class="text-xs font-medium">Career</span>
+            </button>
+        </div>
+    </nav>
+
+    <script type="module" src="app.js"></script>
+</body>
+
+</html>

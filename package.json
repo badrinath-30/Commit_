@@ -1,0 +1,26 @@
+{
+  "name": "commit.",
+  "version": "1.0.0",
+  "description": "A developer-focused habit, task, and note tracker built by Badri.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "mkdir -p www && cp -r src/* www/"
+  },
+  "keywords": [
+    "habit-tracker",
+    "developer-tools",
+    "productivity"
+  ],
+  "author": "Badri",
+  "license": "ISC",
+  "dependencies": {
+    "@capacitor/android": "^6.2.1",
+    "@capacitor/cli": "^6.2.1",
+    "@capacitor/core": "^6.2.1",
+    "@supabase/supabase-js": "^2.98.0"
+  },
+  "devDependencies": {
+    "@capacitor/assets": "^3.0.5"
+  }
+}

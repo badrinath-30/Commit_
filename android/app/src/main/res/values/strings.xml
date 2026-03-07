@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Commit_</string>
+    <string name="title_activity_main">Commit_</string>
+    <string name="package_name">com.commit.app</string>
+    <string name="custom_url_scheme">com.commit.app</string>
+</resources>

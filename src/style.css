@@ -1,0 +1,40 @@
+/* Mobile Safe Area helper */
+.pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 20px);
+}
+
+/* Hide Scrollbar but allow scrolling */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+/* Hide Scrollbar for specific elements */
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Transitions */
+.view-section {
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Base styles for inputs/textareas to reset defaults */
+input, textarea {
+    background: transparent;
+    border: none;
+    outline: none;
+    resize: none;
+}
