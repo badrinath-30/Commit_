@@ -52,19 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Show loading state initially
-    const habitsContainer = document.getElementById('view-habits');
-    habitsContainer.classList.remove('hidden');
-    habitsContainer.innerHTML = `
-        <div class="flex flex-col items-center justify-center py-20 text-center space-y-4 animate-in fade-in duration-500 font-mono">
-            <i data-lucide="loader-2" class="w-8 h-8 text-green-500 animate-spin"></i>
-            <p class="text-zinc-500 text-sm tracking-wider uppercase">Syncing with cloud...</p>
-        </div>
-    `;
-    lucide.createIcons();
-
     const store = new Store(() => {
-        // Callback fired when data is loaded from Supabase
+        // Callback fired when data is loaded
         switchView(currentView, store);
     });
 
